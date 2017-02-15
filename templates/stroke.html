@@ -1,0 +1,70 @@
+<html>
+<head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ </head>
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+</style>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">...</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="{{url_for('stroke',stroke_type='freestyle')}}">Freestyle</a></li>
+      <li><a href="{{url_for('stroke',stroke_type='butterfly')}}">Butterfly</a></li>
+      <li><a href="{{url_for('stroke',stroke_type='backstroke')}}">Backstroke</a></li>
+      <li><a href="{{url_for('stroke',stroke_type='breaststroke')}}">Breaststroke</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+ {% for distance in distances %}
+ 	{{distance}}
+
+<table style = "width:100%">
+ <tr>
+<th>name</th>
+<th>age</th>
+<th>gender</th>
+<th>region</th>
+<th>swimtimes</th> 
+ </tr>
+  
+  {%for swimtime in swimtimesByDistance[distance]%}
+  <tr>
+ <td>
+{{swimtime.user.name}}
+
+ </td>
+<td>
+{{swimtime.user.age}}
+
+ </td>
+ <td>
+{{swimtime.user.gender}}
+
+ </td>
+ <td>
+{{swimtime.user.region}}
+
+ </td>
+ <td>
+{{swimtime.time}}
+
+ </td>
+  </tr>
+  {% endfor %}
+
+ </table>
+
+{% endfor %}
+</body>
+</html>

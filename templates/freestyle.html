@@ -1,0 +1,52 @@
+<html>
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+</style>
+<body>
+
+ {% for distance in distances %}
+ 	{{distance}}
+
+<table style = "width:100%">
+ <tr>
+<th>name</th>
+<th>age</th>
+<th>gender</th>
+<th>region</th>
+<th>swimtimes</th>
+
+ </tr>
+  
+  {%for swimtime in swimtimesByDistance[distance]%}
+  <tr>
+ <td>
+{{swimtime.user.name}}
+
+ </td>
+<td>
+{{swimtime.user.age}}
+
+ </td>
+ <td>
+{{swimtime.user.gender}}
+
+ </td>
+ <td>
+{{swimtime.user.region}}
+
+ </td>
+ <td>
+{{swimtime.time}}
+
+ </td>
+  </tr>
+  {% endfor %}
+
+ </table>
+
+ {% endfor %}
+
+</body>
+</html>
