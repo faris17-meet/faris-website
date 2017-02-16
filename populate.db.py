@@ -7,6 +7,9 @@ DBSession = sessionmaker(bind=engine, autoflush=False)
 session = DBSession()
 
 
+session.query(User).delete()
+session.query(Swimtime).delete()
+
 user = User(name="Faris",gender="male",age=16,region="Jerusalem")
 session.add(user)
 session.commit()

@@ -38,11 +38,11 @@ def stroke(stroke_type):
 	distances = [row.distance for row in query.all()]
 	swimtimesByDistance={}
 
-
+	distances.reverse()
 	for distance in distances:
 		swimtimesByDistance[distance] =	session.query(Swimtime).filter_by(stroke=stroke_type,distance=distance).all()
 
-	return render_template('stroke.html', distances = distances,swimtimesByDistance=swimtimesByDistance)
+	return render_template('stroke.html', distances = set(distances),swimtimesByDistance=swimtimesByDistance)
 
 @app.route("/breastroke")
 def breastroke():
