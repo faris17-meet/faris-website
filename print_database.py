@@ -50,6 +50,7 @@ if __name__ == '__main__':
         def make_row(row):
             row = ['None' if c is None else c for c in row]
             return row_format.format(*row)
+        
         row_strings = '\n'.join([make_row(row) for row in table_to_print])
 
         table_string += row_strings
